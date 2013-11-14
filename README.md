@@ -13,21 +13,25 @@ This package contains a Mojito resource store add-on that allows you to write
 the following in your configuration files:
 
 ```json
-"specs > frame > config > child > config > section > article > config > truncation_length": 180
+{
+    "specs > frame > config > child > config > section > article > config > truncation_length": 180
+}
 ```
 
 Instead of:
 
 ```json
-"specs": {
-    "frame": {
-        "config": {
-            "child": {
-                "config": {
-                    "section": {
-                        "article": {
-                            "config": {
-                                "truncation_length": 180
+{
+    "specs": {
+        "frame": {
+            "config": {
+                "child": {
+                    "config": {
+                        "section": {
+                            "article": {
+                                "config": {
+                                    "truncation_length": 180
+                                }
                             }
                         }
                     }
