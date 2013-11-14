@@ -1,0 +1,40 @@
+{
+    "name": "mojito-config-expansion",
+    "version": "0.0.1",
+    "description": "Config expansion plugin for Mojito's Resource Store",
+    "author": {
+        "name": "Julien Lecomte",
+        "email": "jlecomte@yahoo-inc.com"
+    },
+    "engines": {
+        "node": "> 0.10",
+        "npm": "> 1.2",
+        "mojito": ">= 0.8.0"
+    },
+    "devDependencies": {
+        "mojito": "0.8.x",
+        "mojito-cli": "~0.0.5",
+        "istanbul": "*"
+    },
+    "scripts": {
+        "pretest": "mojito jslint app",
+        "test": "istanbul cover --yui=true --dir=artifacts/test/coverage ./node_modules/.bin/mojito -- test app .",
+        "posttest": "istanbul check-coverage --statements 80 --lines 80 --functions 80"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/yahoo/mojito-config-expansion.git"
+    },
+    "bugs": {
+        "url": "https://github.com/yahoo/mojito-config-expansion/issues"
+    },
+    "licenses": [{
+        "type": "BSD",
+        "url": "https://github.com/yahoo/mojito-config-expansion/blob/master/LICENSE.txt"
+    }],
+    "yahoo": {
+        "mojito": {
+            "type": "bundle"
+        }
+    }
+}
