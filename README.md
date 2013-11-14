@@ -47,3 +47,4 @@ configuration can become painful in a complex Mojito application.
 
 To use this resource store add-on, simply require the `mojito-config-expansion`
 npm package in your application.
+
