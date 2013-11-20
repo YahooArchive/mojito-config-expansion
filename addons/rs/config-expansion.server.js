@@ -87,11 +87,14 @@ YUI.add('addon-rs-config-expansion', function (Y, NAME) {
         },
 
         afterReadConfig: function (fullpath) {
-            var obj = Y.Do.currentRetVal;
+            var obj = Y.Do.currentRetVal, cfg;
             if (obj) {
-                processConfigurationObject(obj);
-                this._cache[fullpath] = obj;
-                return new Y.Do.AlterReturn(null, obj);
+                // I am forced to clone the current return value. Modifying it
+                // directly breaks Mojito. I have no idea why...
+                cfg = Y.clone(obj);
+                processConfigurationObject(cfg);
+                this._cache[fullpath] = cfg;
+                return new Y.Do.AlterReturn(null, cfg);
             }
         }
     });

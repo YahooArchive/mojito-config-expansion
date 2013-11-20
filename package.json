@@ -1,6 +1,6 @@
 {
     "name": "mojito-config-expansion",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "Config expansion plugin for Mojito's Resource Store",
     "author": {
         "name": "Julien Lecomte",
