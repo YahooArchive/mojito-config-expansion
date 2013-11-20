@@ -1,7 +1,7 @@
 /*jslint node: true, nomen: true, stupid: true */
 /*global YUI: true, YUITest: true */
 
-YUI.add('addon-rs-hotswap-yui-tests', function (Y, NAME) {
+YUI.add('addon-rs-config-expansion-tests', function (Y, NAME) {
     'use strict';
 
     //-- Mock resource store --------------------------------------------------
@@ -87,7 +87,7 @@ YUI.add('addon-rs-hotswap-yui-tests', function (Y, NAME) {
 
     suite.add(new YUITest.TestCase({
 
-        name: 'hotswap yui rs addon tests',
+        name: 'config expansion rs addon tests',
 
         setUp: function () {
             store = new MockRS();
@@ -101,14 +101,14 @@ YUI.add('addon-rs-hotswap-yui-tests', function (Y, NAME) {
 
         'Composite keys should be expanded correctly by the config resource store add-on': function () {
             var config = store.config.readConfigSimple(),
-                stringified = require('util').inspect(config, { depth: null });
+                stringified = JSON.stringify(config);
 
-            A.areSame("{ a1: { b1: { c1: { text: 'foobar' } } },\n" +
-                "  a3: { b3: { c3: { text: 'foobar' } } },\n" +
-                "  array: [ { a5: { b5: { c5: { text: 'foobar' } } } } ],\n" +
-                "  a0: { b0: { c0: { text: 'foobar' } } },\n" +
-                "  a2: { b2: { c2: { text: 'foobar' } } },\n" +
-                "  a4: { b4: { c4: { text: 'foobar' } } } }", stringified);
+            A.areSame('{"a1":{"b1":{"c1":{"text":"foobar"}}},' +
+                '"a3":{"b3":{"c3":{"text":"foobar"}}},' +
+                '"array":[{"a5":{"b5":{"c5":{"text":"foobar"}}}}],' +
+                '"a0":{"b0":{"c0":{"text":"foobar"}}},' +
+                '"a2":{"b2":{"c2":{"text":"foobar"}}},' +
+                '"a4":{"b4":{"c4":{"text":"foobar"}}}}', stringified);
         }
     }));
 
